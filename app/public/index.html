@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authenticator</title>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h1 style="text-align: center">Authenticator Stub</h1>
+<h2>APIs</h2>
+
+<ol>
+    <li>
+        <h4>Add User</h4>
+        <p>Method:POST</p>
+        <code>/users/add</code> <br>
+        <p>Body</p>
+        <code>
+            {
+            "username":"kategreen",
+            "password":"1234",
+            "name":"Kate Green",
+            "sex" : "female",
+            "birth":"1998-04-01",
+            "title":"UI Designer",
+            "org":"HUST"
+            }
+        </code>
+    </li>
+    <li>
+        <h4>Verify User</h4>
+        <p>Method:POST</p>
+        <code>/users/verify</code> <br>
+        <p>Body</p>
+        <code>{
+            "username":"kategreen",
+            "password":"1234",
+            }
+        </code>
+    </li>
+    <li>
+        <h4>Get All User</h4>
+        <p>Method:GET</p>
+        <code>/users/</code>
+    </li>
+    <li>
+        <h4>Get User By Id</h4>
+        <p>Method:GET</p>
+        <code>/users/getbyid/:id</code>
+    </li>
+    <li>
+        <h4>Remove User By Id</h4>
+        <p>Method:GET</p>
+        <code>/users/removebyid/:id</code>
+    </li>
+
+</ol>
+</body>
+</html>
