@@ -1,5 +1,6 @@
 var express = require('express');
 var UserModel = require('../model/userModel');
+var _=require("lodash");
 var router = express.Router();
 
 /* GET users listing. */
@@ -71,7 +72,9 @@ router.get('/suggestion', function(req, res){
             else {
                 res.json({
                     status:'S',
-                    body:docs
+                    body:_.map(docs, function(obj){
+                        return UserModel.secureUserInfo(obj);
+                    })
                 });
             }
         });
