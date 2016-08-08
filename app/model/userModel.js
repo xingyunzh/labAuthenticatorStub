@@ -12,7 +12,8 @@ var UserSchema = new Schema({
     sex:String,
     title:String,
     birth:Date,
-    org:String
+    org:String,
+    email:String
 });
 
 UserSchema.statics.secureUserInfo = function (user) {

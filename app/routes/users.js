@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/add', function (req, res) {
-   if (req.body.username && req.body.password && req.body.name && req.body.sex && req.body.birth && req.body.org && req.body.title){
+   if (req.body.username && req.body.password && req.body.name && req.body.sex && req.body.birth && req.body.org && req.body.title && req.body.email){
        var user = new UserModel ({
            username:req.body.username,
            password:req.body.password,
@@ -29,7 +29,8 @@ router.post('/add', function (req, res) {
            sex:req.body.sex,
            birth:req.body.birth,
            org:req.body.org,
-           title:req.body.title
+           title:req.body.title,
+           email:req.body.email
        });
 
        user.save(function (err, doc) {
