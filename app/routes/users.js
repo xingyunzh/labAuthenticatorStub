@@ -20,6 +20,8 @@ router.get('/', function(req, res) {
     });
 });
 
+
+/* add new user */
 router.post('/add', function (req, res) {
    if (req.body.username && req.body.password && req.body.name && req.body.sex && req.body.birth && req.body.org && req.body.title && req.body.email){
        var user = new UserModel ({
@@ -54,6 +56,32 @@ router.post('/add', function (req, res) {
            body:'Bad param'
        });
    }
+});
+
+router.get('/suggestion', function(req, res){
+    var key = req.query.key;
+    if (key && key.length > 0){
+        UserModel.find({$or:[{name:{$regex:key, $options: 'i'}}, {email:{$regex:key, $options:'i'}}]}, function (err,docs) {
+            if (err){
+                res.json({
+                    status:'E',
+                    body:'DB save error = ' + err
+                });
+            }
+            else {
+                res.json({
+                    status:'S',
+                    body:docs
+                });
+            }
+        });
+    }
+    else {
+        res.json({
+            status:'E',
+            body:'Bad param'
+        });
+    }
 });
 
 router.post('/verify', function (req, res) {
